@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MyOreumImage from '../common/MyOreumImage';
 import Button from '../home/Button';
 
-export default function ProtectOreum() {
+export default function ProtectOreum({ myOreumId }: { myOreumId: number }) {
   const navigate = useNavigate();
   return (
     <Container>
@@ -19,7 +19,7 @@ export default function ProtectOreum() {
         <Description>만들어진 탐방로는 벗어나지 말아요.</Description>
         <Description>전문 등산 장비는 사용을 자제해 주세요.</Description>
       </DescriptionBlock>
-      <Button onClick={() => navigate('../share/1')}>오름 공유하기</Button>
+      <Button onClick={() => navigate(`/share/${myOreumId}`)}>오름 공유하기</Button>
     </Container>
   );
 }

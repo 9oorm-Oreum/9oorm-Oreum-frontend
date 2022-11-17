@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import { MyOreumResponse } from '../api/types';
 import { getMyOreum } from '../api';
 import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
+import { useEffect } from 'react';
 import ShareButton from '../components/shareResult/Button';
 import Button from '../components/home/Button';
 
@@ -84,6 +85,10 @@ export default function ShareResultPage() {
       });
     }
   };
+
+  useEffect(() => {
+    if (id && isNaN(+id)) navigate('/');
+  }, [id]);
 
   return (
     <Container>
