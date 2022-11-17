@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import Select from '../components/home/Select';
+import { postMyOreum } from '../api';
+import { useNavigate } from 'react-router-dom';
 
 const HomeBlock = styled.div`
   background-color: #49a098;
@@ -21,15 +23,10 @@ const HomeBlock = styled.div`
 const Header = styled.header`
   background-color: #eeeeee;
   height: 14%;
-  & > h1 {
-    font-size: 70em;
-    font-family: 'BinggraeSamancoBold';
-    color: #f59c06;
-  }
 `;
 const Icon = styled.div`
   background-color: #aaaaaa;
-  height: 18%;
+  height: 20%;
 `;
 const Main = styled.main`
   height: 26%;
@@ -68,19 +65,23 @@ const InputBlock = styled.div`
     font-weight: 700;
   }
 
-  & > input {
+  & > label {
+    height: 60%;
+  }
+
+  & input {
     font-family: 'Pretendard';
     font-weight: 500;
     font-size: 16em;
     width: 100%;
-    height: 60%;
+    height: 100%;
     padding: 0 9px;
     border: 1px solid #bababa;
     border-radius: 10px;
     background-color: #fafafa;
   }
 
-  & > input::placeholder {
+  & input::placeholder {
     color: #bababa;
   }
 
@@ -105,19 +106,34 @@ const Button = styled.button`
 export default function HomePage() {
   const [month, setMonth] = useState<string>('');
   const [day, setDay] = useState<string>('');
+  const inputRef = useRef<HTMLInputElement>(null);
   const date = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    if (inputRef.current) {
+      const response = await postMyOreum({
+        nickname: inputRef.current.value,
+        month,
+        day,
+      });
+
+      console.log(response.data);
+      navigate(`./result/${response.data.myOreumId}`);
+    }
+  };
 
   return (
     <HomeBlock>
-      <Header>
-        <h1>나영오름</h1>
-      </Header>
+      <Header></Header>
       <Icon></Icon>
       <Main>
         <InputContainer>
           <InputBlock>
             <h3>이름</h3>
-            <input type='직접 입력' placeholder='직접 입력' maxLength={4} />
+            <label htmlFor='name'>
+              <input type='직접 입력' placeholder='직접 입력' maxLength={4} id='name' ref={inputRef} />
+            </label>
           </InputBlock>
           <InputBlock>
             <h3>생일</h3>
@@ -131,7 +147,7 @@ export default function HomePage() {
             </div>
           </InputBlock>
         </InputContainer>
-        <Button>나만의 오름 만들기</Button>
+        <Button onClick={handleClick}>나만의 오름 만들기</Button>
       </Main>
     </HomeBlock>
   );

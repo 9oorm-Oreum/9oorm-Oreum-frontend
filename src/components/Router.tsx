@@ -6,8 +6,8 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<HomePage />} />
-        <Route path="/result" element={<ResultPage />} />
+        <Route path='/*' element={<HomePage />} />
+        <Route path='/result/:id' element={<ResultPage />} />
       </Routes>
     </BrowserRouter>
   );

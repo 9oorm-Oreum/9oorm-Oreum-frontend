@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
+import { request } from 'http';
 import { MyOreumRequestBody, MyOreumResponse } from './types';
 
 const axiosInstance = axios.create({
