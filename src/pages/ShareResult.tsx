@@ -7,21 +7,30 @@ import Button from '../components/shareResult/Button';
 import CtaButton from '../components/myOreumResult/CtaButton';
 
 export default function ShareResultPage() {
-  const saveSticker = () => {
+  const saveSticker = (type: string) => {
     const sticker = document.getElementById('sticker');
     if (sticker) {
       html2canvas(sticker).then((canvas) => {
-        const link = document.createElement('a');
-        document.body.appendChild(link);
-        link.href = canvas.toDataURL('image/png');
-        link.download = '나영오름 스티커.png';
-        link.click();
-        document.body.removeChild(link);
+        const image = canvas.toDataURL('image/png');
+        if (type === 'save') {
+          saveImage(image);
+        } else {
+          shareKakao(image);
+        }
       });
     }
   };
 
-  const shareKakao = () => {
+  const saveImage = (uri: string) => {
+    const link = document.createElement('a');
+    document.body.appendChild(link);
+    link.href = uri;
+    link.download = '나영오름 스티커.png';
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const shareKakao = (imageUrl: string) => {
     if ((window as any).Kakao) {
       const kakao = (window as any).Kakao;
       if (!kakao.isInitialized()) {
@@ -32,7 +41,7 @@ export default function ShareResultPage() {
         content: {
           title: '오늘의 디저트',
           description: '아메리카노, 빵, 케익',
-          imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+          imageUrl: '이미지 uri',
           link: {
             mobileWebUrl: 'https://developers.kakao.com',
             webUrl: 'https://developers.kakao.com',
@@ -71,24 +80,19 @@ export default function ShareResultPage() {
           sum: '총 결제금액',
           sumOp: '15000원',
         },
-        social: {
-          likeCount: 10,
-          commentCount: 20,
-          sharedCount: 30,
-        },
         buttons: [
           {
-            title: '웹으로 이동',
+            title: '친구 결과 확인',
             link: {
               mobileWebUrl: 'https://developers.kakao.com',
               webUrl: 'https://developers.kakao.com',
             },
           },
           {
-            title: '앱으로 이동',
+            title: '나의 오름 찾기',
             link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
+              mobileWebUrl: 'https://9oorm-oreum-frontend.vercel.app/',
+              webUrl: 'https://9oorm-oreum-frontend.vercel.app/',
             },
           },
         ],
@@ -103,8 +107,8 @@ export default function ShareResultPage() {
       <OreumType>말굽형 오름</OreumType>
       <StyledMyOreumImage />
       <ButtonContainer>
-        <Button handleClick={saveSticker}>스티커 저장</Button>
-        <Button handleClick={shareKakao}>카카오톡 공유</Button>
+        <Button handleClick={() => saveSticker('save')}>스티커 저장</Button>
+        <Button handleClick={() => saveSticker('share')}>카카오톡 공유</Button>
       </ButtonContainer>
       <StyledCtaButton>처음으로</StyledCtaButton>
     </Container>

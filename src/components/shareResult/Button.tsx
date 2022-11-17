@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   font-weight: 600;
   font-size: 17px;
   line-height: 22px;
-  color: #4a4a4a;
+  color: #180202;
   background-color: #c9e0de;
 `;
 
