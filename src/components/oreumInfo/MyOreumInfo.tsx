@@ -86,10 +86,11 @@ const OreumTypeSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  padding: 0 29px;
   .image {
     margin-top: 11px;
   }
-
   .type-description {
     background-color: #ffffff;
     border-radius: 30px;
@@ -102,6 +103,7 @@ const OreumTypeSection = styled.section`
     white-space: pre-line;
     text-align: center;
     margin-top: 11px;
+    width: 100%;
   }
 `;
 
@@ -110,9 +112,8 @@ const OreumTypeTitle = styled.div`
   font-style: normal;
   font-weight: 700;
   font-size: 30em;
-  line-height: 22px;
+  line-height: 30px;
   letter-spacing: -0.408px;
-
   .type-name {
     color: #f59d06;
   }
