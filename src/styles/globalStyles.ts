@@ -60,7 +60,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   @font-face{
-    font-family:"BinggraeSamancoRegular";
+    font-family:"Binggrae Samanco";
     src:url(${BinggraeSamancoRegular}) format('truetype');
   }
 
