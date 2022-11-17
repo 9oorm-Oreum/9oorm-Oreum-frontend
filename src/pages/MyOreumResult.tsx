@@ -56,14 +56,8 @@ const Container = styled.div`
   background-color: #49a098;
   padding: 0 15px;
   font-size: 1px;
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 310px) {
     font-size: 0.9px;
-  }
-  @media screen and (max-width: 380px) {
-    font-size: 0.8px;
-  }
-  @media screen and (max-width: 330px) {
-    font-size: 0.7px;
   }
 `;
 
