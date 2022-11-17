@@ -2,7 +2,7 @@ import axios from 'axios';
 import { MyOreumRequestBody } from './types';
 
 const axiosInstance = axios.create({
-  baseURL: '',
+  baseURL: process.env.NODE_ENV === 'development' ? '' : process.env.REACT_APP_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': '*/*',
