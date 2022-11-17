@@ -1,12 +1,25 @@
-import Title from '../components/myOreumResult/Title';
+import html2canvas from 'html2canvas';
 import styled from 'styled-components';
+import Title from '../components/myOreumResult/Title';
 import MyOreumName from '../components/myOreumResult/MyOreumName';
 import MyOreumImage from '../components/myOreumResult/MyOreumImage';
 import Button from '../components/shareResult/Button';
 import CtaButton from '../components/myOreumResult/CtaButton';
 
 export default function ShareResultPage() {
-  const saveSticker = () => {};
+  const saveSticker = () => {
+    const sticker = document.getElementById('sticker');
+    if (sticker) {
+      html2canvas(sticker).then((canvas) => {
+        const link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = canvas.toDataURL('image/png');
+        link.download = '나영오름 스티커.png';
+        link.click();
+        document.body.removeChild(link);
+      });
+    }
+  };
 
   const shareKakao = () => {
     if ((window as any).Kakao) {
@@ -90,7 +103,7 @@ export default function ShareResultPage() {
       <OreumType>말굽형 오름</OreumType>
       <StyledMyOreumImage />
       <ButtonContainer>
-        <Button handleClick={() => {}}>스티커 저장</Button>
+        <Button handleClick={saveSticker}>스티커 저장</Button>
         <Button handleClick={shareKakao}>카카오톡 공유</Button>
       </ButtonContainer>
       <StyledCtaButton>처음으로</StyledCtaButton>
