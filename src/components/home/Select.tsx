@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const SelectBlock = styled.select<{ value: string }>`
@@ -8,7 +8,7 @@ const SelectBlock = styled.select<{ value: string }>`
   width: 100%;
   height: 100%;
   padding: 0 9px;
-  border: 1px solid #bebebe;
+  border: 1px solid #bababa;
   border-radius: 10px;
   color: ${(props) => (props.value === '' ? '#bababa' : 'black')};
   & option[value=''] {
@@ -18,20 +18,31 @@ const SelectBlock = styled.select<{ value: string }>`
 
 interface SelectProps {
   children: ReactNode;
+  range: number;
+  setState: React.Dispatch<React.SetStateAction<string>>;
+  value: string;
 }
 
-const Select = ({ children }: SelectProps) => {
-  const [selected, setSelected] = useState('');
+const Select = ({ children, range, setState, value }: SelectProps) => {
+  const [options, setOptions] = useState<number[]>([]);
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelected(e.target.value);
+    setState(e.target.value);
   };
+  useEffect(() => {
+    const temp = [];
+    for (let i = 1; i <= range; i++) temp.push(i);
+    setOptions(temp);
+    console.log(temp);
+  }, [range]);
+
   return (
-    <SelectBlock value={selected || ''} onChange={(e) => handleSelect(e)}>
+    <SelectBlock value={value || ''} onChange={(e) => handleSelect(e)}>
       <option value='' disabled>
         {children}
       </option>
-      <option value='1'>1월</option>
-      <option value='2'>2월</option>
+      {options.map((option) => {
+        return <option value={option} key={option}>{`${option}${children}`}</option>;
+      })}
     </SelectBlock>
   );
 };
