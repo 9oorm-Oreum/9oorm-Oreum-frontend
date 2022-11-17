@@ -13,11 +13,7 @@ export default function CarouselPage() {
     <CarouselBlock>
       <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={1} pagination={{ type: 'bullets' }}>
         <SwiperSlide>
-          <MyOreumInfo
-            type={{ name: OREUM_TYPE_INFO.CIRCLE.name, description: OREUM_TYPE_INFO.CIRCLE.description }}
-            xpos={1}
-            ypos={11}
-          />
+          <MyOreumInfo />
         </SwiperSlide>
         <SwiperSlide>
           <CareOreum />
