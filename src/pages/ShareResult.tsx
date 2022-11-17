@@ -5,10 +5,30 @@ import MyOreumName from '../components/myOreumResult/MyOreumName';
 import Button from '../components/shareResult/Button';
 import CtaButton from '../components/myOreumResult/CtaButton';
 import MyOreumImage from '../components/common/MyOreumImage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { MyOreumResponse } from '../api/types';
+import { getMyOreum } from '../api';
+import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
 
 export default function ShareResultPage() {
+  const { id } = useParams();
+  const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'nickname' | 'name' | 'type' | 'myOreumId'>>(
+    ['myOreum', id],
+    async () => {
+      if (!id) throw new Error('잘못된 접근입니다');
+      const { nickname, name, type, myOreumId } = await getMyOreum(+id);
+      return { nickname, name, type, myOreumId };
+    },
+    {
+      enabled: !!id,
+      onSuccess: (data) => {
+        console.log(data);
+      },
+    },
+  );
   const navigate = useNavigate();
+
   const saveSticker = (type: string) => {
     const sticker = document.getElementById('sticker');
     if (sticker) {
@@ -104,9 +124,9 @@ export default function ShareResultPage() {
 
   return (
     <Container>
-      <StyledTitle content='손은서' />
-      <StyledMyOreumName content='거문오름' />
-      <OreumType>말굽형 오름</OreumType>
+      <StyledTitle content={myOreum?.nickname ?? ''} />
+      <StyledMyOreumName content={myOreum?.name ?? ''} />
+      <OreumType>{myOreum ? OREUM_TYPE_INFO[myOreum.type].name : ''}</OreumType>
       <StyledMyOreumImage />
       <ButtonContainer>
         <Button handleClick={() => saveSticker('save')}>스티커 저장</Button>
@@ -158,4 +178,5 @@ const ButtonContainer = styled.div`
   justify-content: space-between;
   padding: 0 25px;
   gap: 15px;
+  margin-top: 65px;
 `;
