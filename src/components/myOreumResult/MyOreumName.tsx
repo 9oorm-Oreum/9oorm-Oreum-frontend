@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export default function MyOreumName({ content }: { content: string }) {
-  return <Container>{content}</Container>;
+export default function MyOreumName({ content, className }: { content: string; className?: string }) {
+  return <Container className={className}>{content}</Container>;
 }
 
 const Container = styled.div`

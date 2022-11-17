@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export default function MyOreumResultTitle({ content }: { content: string }) {
+export default function MyOreumResultTitle({ content, className }: { content: string; className?: string }) {
   return (
-    <Container>
+    <Container className={className}>
       <div className='name'>{content}</div>
       <div className='common'>의 오름은?</div>
     </Container>
