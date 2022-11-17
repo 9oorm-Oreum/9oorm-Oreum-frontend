@@ -3,13 +3,33 @@ import styled from 'styled-components';
 import MyOreumName from '../components/myOreumResult/MyOreumName';
 import MyOreumImage from '../components/myOreumResult/MyOreumImage';
 import CtaButton from '../components/myOreumResult/CtaButton';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getMyOreum } from '../api';
+import { useQuery } from 'react-query';
 
 export default function MyOreumResultPage() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { data: myOreum } = useQuery(
+    ['myOreum', id],
+    async () => {
+      if (!id) throw new Error('잘못된 접근입니다');
+      const { nickname, name, type } = await getMyOreum(+id);
+      return { nickname, name, type };
+    },
+    { enabled: !!id },
+  );
+
+  useEffect(() => {
+    if (id && isNaN(+id)) navigate('/');
+  }, [id]);
+
   return (
     <Container>
-      <StyledTitle content='손은서' />
-      <StyledMyOreumName content='거문오름' />
-      <OreumType>말굽형 오름</OreumType>
+      <StyledTitle content={myOreum?.nickname ?? ''} />
+      <StyledMyOreumName content={myOreum?.name ?? ''} />
+      <OreumType>{myOreum?.type ?? ''} </OreumType>
       <StyledMyOreumImage />
       <Description> {`제주도에 실제로 있는 나만의 오름이에요\n오름에 대해 더 알아볼까요?`}</Description>
       <StyledCtaButton>나만의 오름 알아보기</StyledCtaButton>
@@ -49,6 +69,7 @@ const StyledTitle = styled(Title)`
 `;
 
 const Description = styled.div`
+  font-family: 'Pretendard';
   font-weight: 500;
   font-style: normal;
   font-size: 18px;
@@ -61,4 +82,5 @@ const Description = styled.div`
 
 const StyledCtaButton = styled(CtaButton)`
   margin-top: 103px;
+  margin-bottom: 56px;
 `;

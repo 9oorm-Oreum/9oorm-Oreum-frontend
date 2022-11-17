@@ -22,7 +22,7 @@ export const postMyOreum = async (requestBody: MyOreumRequestBody) => {
 export const getMyOreum = async (myOreumID: number) => {
   const response = await axiosInstance.request<AxiosResponse<MyOreumResponse>>({
     method: 'GET',
-    url: `api/oreum/${myOreumID}`,
+    url: `/oreums/${myOreumID}`,
   });
-  return response;
+  return response.data.data;
 };
