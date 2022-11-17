@@ -64,7 +64,7 @@ export default function MyOreumImage({
 }
 
 const Container = styled.div<{ isSmall?: boolean }>`
-  width: ${({ isSmall }) => (isSmall ? '240px' : '100%')};
+  width: ${({ isSmall }) => (isSmall ? '240px' : '390px')};
   height: ${({ isSmall }) => (isSmall ? '140px' : '243px')};
   position: relative;
   display: flex;
