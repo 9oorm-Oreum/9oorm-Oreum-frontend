@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import { MyOreumResponse } from '../api/types';
 import { getMyOreum } from '../api';
 import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
+import { useEffect } from 'react';
 import ShareButton from '../components/shareResult/Button';
 import Button from '../components/home/Button';
 
@@ -106,8 +107,12 @@ export default function ShareResultPage() {
           {
             title: '친구 결과 확인',
             link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
+              mobileWebUrl: `${
+                process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '9oorm-oreum-frontend.vercel.app'
+              }/share/${myOreum?.myOreumId}`,
+              webUrl: `${
+                process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '9oorm-oreum-frontend.vercel.app'
+              }/share/${myOreum?.myOreumId}`,
             },
           },
           {
@@ -121,6 +126,10 @@ export default function ShareResultPage() {
       });
     }
   };
+
+  useEffect(() => {
+    if (id && isNaN(+id)) navigate('/');
+  }, [id]);
 
   return (
     <Container>

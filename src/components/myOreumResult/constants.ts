@@ -1,6 +1,6 @@
 import { OreumType } from '../../api/types';
 
-interface OreumTypeInfo {
+export interface OreumTypeInfo {
   name: string;
   description: string;
 }
