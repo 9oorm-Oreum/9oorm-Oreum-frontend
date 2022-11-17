@@ -10,6 +10,7 @@ import { useQuery } from 'react-query';
 import { MyOreumResponse } from '../api/types';
 import { getMyOreum } from '../api';
 import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
+import { useEffect } from 'react';
 
 export default function ShareResultPage() {
   const { id } = useParams();
@@ -56,7 +57,7 @@ export default function ShareResultPage() {
     if ((window as any).Kakao) {
       const kakao = (window as any).Kakao;
       if (!kakao.isInitialized()) {
-        kakao.init(process.env.REACT_APP_KAKAO_KEY);
+        kakao.init(process.env.REACT_APP_KAKAO_SHARE_KEY);
       }
       kakao.Share.sendDefault({
         objectType: 'feed',
@@ -106,8 +107,12 @@ export default function ShareResultPage() {
           {
             title: '친구 결과 확인',
             link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
+              mobileWebUrl: `${
+                process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '9oorm-oreum-frontend.vercel.app'
+              }/share/${myOreum?.myOreumId}`,
+              webUrl: `${
+                process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '9oorm-oreum-frontend.vercel.app'
+              }/share/${myOreum?.myOreumId}`,
             },
           },
           {
@@ -121,6 +126,10 @@ export default function ShareResultPage() {
       });
     }
   };
+
+  useEffect(() => {
+    if (id && isNaN(+id)) navigate('/');
+  }, [id]);
 
   return (
     <Container>

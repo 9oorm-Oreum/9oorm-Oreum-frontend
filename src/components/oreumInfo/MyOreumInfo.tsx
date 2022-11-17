@@ -1,35 +1,19 @@
 import { useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { getMyOreum } from '../../api';
-import { MyOreumResponse } from '../../api/types';
 import MyOreumImage from '../common/MyOreumImage';
-import { OREUM_TYPE_INFO } from '../myOreumResult/constants';
 
-export default function MyOreumInfo() {
+interface MyOreumInfoProps {
+  name: string;
+  description: string;
+  ypos: number;
+  xpos: number;
+}
+
+export default function MyOreumInfo({ name, description, ypos, xpos }: MyOreumInfoProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const kakao = (window as any).kakao;
 
-  const { id } = useParams();
-  const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'type' | 'xpos' | 'ypos'>>(
-    ['myOreum', id],
-    async () => {
-      if (!id) throw new Error('잘못된 접근입니다');
-      const { type, ypos, xpos } = await getMyOreum(+id);
-      return { type, ypos, xpos };
-    },
-    {
-      enabled: !!id,
-      onSuccess: (data) => {
-        console.log(data);
-      },
-    },
-  );
-  const navigate = useNavigate();
-
   useEffect(() => {
-    if (id && isNaN(+id)) navigate('/');
     const container = document.getElementById('map');
     const options = {
       center: new kakao.maps.LatLng(33.380648, 126.579557),
@@ -41,7 +25,7 @@ export default function MyOreumInfo() {
       new kakao.maps.Size(22.93, 27.33),
     );
     const marker = new kakao.maps.Marker({
-      position: new kakao.maps.LatLng(myOreum?.ypos ?? -1, myOreum?.xpos ?? -1),
+      position: new kakao.maps.LatLng(ypos, xpos),
       image: markerImage, // 마커이미지 설정
     });
     marker.setMap(map);
@@ -52,11 +36,11 @@ export default function MyOreumInfo() {
       <OreumTypeSection>
         <OreumTypeTitle>
           내 오름은
-          <span className='type-name'> {myOreum ? OREUM_TYPE_INFO[myOreum?.type].name : ''}</span>
+          <span className='type-name'> {name}</span>
           이에요
         </OreumTypeTitle>
         <MyOreumImage isSmall className='image' />
-        <div className='type-description'>{myOreum ? OREUM_TYPE_INFO[myOreum?.type].description : ''}</div>
+        <div className='type-description'>{description}</div>
       </OreumTypeSection>
       <OreumPositionSection>
         <OreumPositionTitle>
