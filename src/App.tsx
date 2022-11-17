@@ -6,6 +6,13 @@ const Button = styled.button`
   background-color: yellow;
 `;
 
+const Font = styled.h1`
+  font-family: 'BinggraeSamancoRegular';
+  & + & {
+    font-family: 'BinggraeSamancoBold';
+  }
+`;
+
 function App() {
   const shareKakao = () => {
     if ((window as any).Kakao) {
@@ -82,7 +89,13 @@ function App() {
     }
   };
 
-  return <Button onClick={shareKakao}>카카오톡 공유하기</Button>;
+  return (
+    <>
+      <Font>빙그레싸만코 폰트 - Regular</Font>
+      <Font>빙그레싸만코 폰트 - Bold</Font>
+      <Button onClick={shareKakao}>카카오톡 공유하기</Button>
+    </>
+  );
 }
 
 export default App;
