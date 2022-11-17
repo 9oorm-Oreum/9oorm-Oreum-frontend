@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 interface CtaButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export default function CtaButton({ children, className }: CtaButtonProps) {
-  return <Container className={className}>{children}</Container>;
+export default function CtaButton({ children, ...props }: CtaButtonProps) {
+  return <Container {...props}>{children}</Container>;
 }
 
 const Container = styled.button`

@@ -7,7 +7,7 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         <Route path='/*' element={<HomePage />} />
-        <Route path='/result' element={<MyOreumResultPage />} />
+        <Route path='/result/:id' element={<MyOreumResultPage />} />
       </Routes>
     </BrowserRouter>
   );
