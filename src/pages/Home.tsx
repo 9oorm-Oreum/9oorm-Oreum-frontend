@@ -13,12 +13,14 @@ const HomeBlock = styled.div`
   flex-direction: column;
   justify-content: space-around;
   font-size: 1px;
-
   @media screen and (max-width: 390px) {
     font-size: 0.9px;
   }
   @media screen and (max-width: 380px) {
     font-size: 0.8px;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 0.7px;
   }
 `;
 const Header = styled.header`
@@ -60,7 +62,7 @@ const InputBlock = styled.div`
     width: 60%;
   }
   & > h3 {
-    font-family: 'Pretendard';
+    font-family: Pretendard;
     color: white;
     font-size: 18em;
     font-weight: 700;
@@ -71,7 +73,7 @@ const InputBlock = styled.div`
   }
 
   & input {
-    font-family: 'Pretendard';
+    font-family: Pretendard;
     font-weight: 500;
     font-size: 16em;
     width: 100%;

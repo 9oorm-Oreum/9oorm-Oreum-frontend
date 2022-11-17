@@ -37,6 +37,7 @@ const OreumTypeTitle = styled.div`
   font-weight: 700;
   font-size: 30px;
   line-height: 22px;
+  margin-top: 8px;
   .type-name {
     color: #f59d06;
   }
@@ -48,6 +49,7 @@ const DescriptionBlock = styled.div`
   gap: 9px;
   margin-top: 30px;
   width: 100%;
+  margin-bottom: 30px;
 `;
 
 const Description = styled.section`

@@ -32,6 +32,7 @@ const OreumTypeTitle = styled.div`
   font-weight: 700;
   font-size: 30px;
   line-height: 22px;
+  margin-top: 8px;
   .type-name {
     color: #f59d06;
   }

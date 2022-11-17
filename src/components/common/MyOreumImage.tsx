@@ -9,7 +9,7 @@ export default function MyOreumImage({ className, isSmall }: { className?: strin
 }
 
 const Container = styled.div<{ isSmall?: boolean }>`
-  height: 243px;
   background-color: gray;
   width: ${({ isSmall }) => (isSmall ? '240px' : '100%')};
+  height: ${({ isSmall }) => (isSmall ? '104px' : '243px')};
 `;
