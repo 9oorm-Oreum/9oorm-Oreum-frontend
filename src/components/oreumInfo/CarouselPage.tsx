@@ -41,7 +41,7 @@ const CarouselBlock = styled.div`
     background-color: #49a098;
   }
   .swiper-pagination-bullets {
-    bottom: 60px;
+    bottom: 11%;
   }
   .swiper {
     height: 100%;
