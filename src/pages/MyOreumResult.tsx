@@ -9,6 +9,7 @@ import { useQuery } from 'react-query';
 import MyOreumImage from '../components/common/MyOreumImage';
 import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
 import { MyOreumResponse } from '../api/types';
+import Button from '../components/home/Button';
 
 export default function MyOreumResultPage() {
   const { id } = useParams();
@@ -40,7 +41,7 @@ export default function MyOreumResultPage() {
       <OreumType>{myOreum?.type ? OREUM_TYPE_INFO[myOreum.type].name : ''}</OreumType>
       <StyledMyOreumImage />
       <Description> {`제주도에 실제로 있는 나만의 오름이에요\n오름에 대해 더 알아볼까요?`}</Description>
-      <StyledCtaButton onClick={() => navigate(`/info/${myOreum?.myOreumId}`)}>나만의 오름 알아보기</StyledCtaButton>
+      <Button onClick={() => navigate(`/info/${myOreum?.myOreumId}`)}>나만의 오름 알아보기</Button>
     </Container>
   );
 }
@@ -49,9 +50,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   background-color: #49a098;
   padding: 0 15px;
+  font-size: 1px;
 `;
 
 const StyledMyOreumName = styled(MyOreumName)`
@@ -62,7 +65,7 @@ const OreumType = styled.div`
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 17em;
   line-height: 22px;
   color: #ffffff;
   margin-top: 12px;
@@ -80,15 +83,11 @@ const Description = styled.div`
   font-family: 'Pretendard';
   font-weight: 500;
   font-style: normal;
-  font-size: 18px;
+  font-size: 18em;
   line-height: 160%;
   color: #ffffff;
   white-space: pre-line;
   text-align: center;
   margin-top: 24px;
-`;
-
-const StyledCtaButton = styled(CtaButton)`
-  margin-top: 103px;
-  margin-bottom: 56px;
+  margin-bottom: 10px;
 `;

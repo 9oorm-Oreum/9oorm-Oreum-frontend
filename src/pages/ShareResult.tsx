@@ -2,8 +2,6 @@ import html2canvas from 'html2canvas';
 import styled from 'styled-components';
 import Title from '../components/myOreumResult/Title';
 import MyOreumName from '../components/myOreumResult/MyOreumName';
-import Button from '../components/shareResult/Button';
-import CtaButton from '../components/myOreumResult/CtaButton';
 import MyOreumImage from '../components/common/MyOreumImage';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
@@ -11,6 +9,8 @@ import { MyOreumResponse } from '../api/types';
 import { getMyOreum } from '../api';
 import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
 import { useEffect } from 'react';
+import ShareButton from '../components/shareResult/Button';
+import Button from '../components/home/Button';
 
 export default function ShareResultPage() {
   const { id } = useParams();
@@ -138,10 +138,10 @@ export default function ShareResultPage() {
       <OreumType>{myOreum ? OREUM_TYPE_INFO[myOreum.type].name : ''}</OreumType>
       <StyledMyOreumImage />
       <ButtonContainer>
-        <Button handleClick={() => saveSticker('save')}>스티커 저장</Button>
-        <Button handleClick={() => saveSticker('share')}>카카오톡 공유</Button>
+        <ShareButton handleClick={() => saveSticker('save')}>스티커 저장</ShareButton>
+        <ShareButton handleClick={() => saveSticker('share')}>카카오톡 공유</ShareButton>
       </ButtonContainer>
-      <StyledCtaButton onClick={() => navigate('../')}>처음으로</StyledCtaButton>
+      <Button onClick={() => navigate('../')}>처음으로</Button>
     </Container>
   );
 }
@@ -150,9 +150,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   background-color: #49a098;
   padding: 0 15px;
+  font-size: 1px;
 `;
 
 const StyledMyOreumName = styled(MyOreumName)`
@@ -163,7 +165,7 @@ const OreumType = styled.div`
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 17em;
   line-height: 22px;
   color: #ffffff;
   margin-top: 12px;
@@ -177,15 +179,12 @@ const StyledTitle = styled(Title)`
   margin-top: 59px;
 `;
 
-const StyledCtaButton = styled(CtaButton)`
-  margin-top: 103px;
-`;
-
 const ButtonContainer = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   padding: 0 25px;
   gap: 15px;
-  margin-top: 65px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 `;
