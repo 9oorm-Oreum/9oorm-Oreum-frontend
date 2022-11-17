@@ -3,7 +3,7 @@ import { request } from 'http';
 import { MyOreumRequestBody, MyOreumResponse } from './types';
 
 const axiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL,
+  baseURL: '',
   headers: {
     'Content-Type': 'application/json',
     'Accept': '*/*',
@@ -22,6 +22,7 @@ export const postMyOreum = async (requestBody: MyOreumRequestBody) => {
 export const getMyOreum = async (myOreumID: number) => {
   const response = await axiosInstance.request<AxiosResponse<MyOreumResponse>>({
     method: 'GET',
-    url: `oreum/${myOreumID}`,
+    url: `api/oreum/${myOreumID}`,
   });
+  return response;
 };
