@@ -32,7 +32,6 @@ const Select = ({ children, range, setState, value }: SelectProps) => {
     const temp = [];
     for (let i = 1; i <= range; i++) temp.push(i);
     setOptions(temp);
-    console.log(temp);
   }, [range]);
 
   return (
