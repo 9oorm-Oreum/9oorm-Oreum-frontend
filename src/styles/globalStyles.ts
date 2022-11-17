@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import BinggraeSamancoRegular from './fonts/BinggraeSamanco.ttf';
+import BinggraeSamancoBold from './fonts/BinggraeSamanco-Bold.ttf';
 
 const GlobalStyle = createGlobalStyle`
   ${reset};
@@ -56,6 +58,17 @@ const GlobalStyle = createGlobalStyle`
   input[disabled] {
     background-color: white;
   }
+
+  @font-face{
+    font-family:"BinggraeSamancoRegular";
+    src:url(${BinggraeSamancoRegular}) format('truetype');
+  }
+
+  @font-face{
+    font-family:"BinggraeSamancoBold";
+    src:url(${BinggraeSamancoBold}) format('truetype');
+  }
+  
 `;
 
 export default GlobalStyle;
