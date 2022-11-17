@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import CarouselPage from '../components/oreumInfo/CarouselPage';
 
 export default function OreumInfoPage() {
-  return <Container></Container>;
+  return (
+    <Container>
+      <CarouselPage />
+    </Container>
+  );
 }
 
-const Container = styled.div`
-  width: 100%;
-`;
+const Container = styled.div``;
