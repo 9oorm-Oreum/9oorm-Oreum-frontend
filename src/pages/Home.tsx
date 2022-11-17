@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Select from '../components/home/Select';
 import { postMyOreum } from '../api';
@@ -92,8 +92,8 @@ const InputBlock = styled.div`
   }
 `;
 
-const Button = styled.button`
-  background-color: #362c1b;
+const Button = styled.button<{ disabled: boolean }>`
+  background-color: ${(props) => (props.disabled ? '#bababa' : '#362c1b')};
   height: 40%;
   border-radius: 10px;
   width: 100%;
@@ -106,21 +106,22 @@ const Button = styled.button`
 export default function HomePage() {
   const [month, setMonth] = useState<string>('');
   const [day, setDay] = useState<string>('');
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [name, setName] = useState<string>('');
   const date = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const navigate = useNavigate();
 
   const handleClick = async () => {
-    if (inputRef.current) {
-      const response = await postMyOreum({
-        nickname: inputRef.current.value,
-        month,
-        day,
-      });
+    const response = await postMyOreum({
+      nickname: name,
+      month,
+      day,
+    });
 
-      console.log(response.data);
-      navigate(`./result/${response.data.myOreumId}`);
-    }
+    navigate(`./result/${response.data.myOreumId}`);
+  };
+
+  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
   return (
@@ -131,9 +132,7 @@ export default function HomePage() {
         <InputContainer>
           <InputBlock>
             <h3>이름</h3>
-            <label htmlFor='name'>
-              <input type='직접 입력' placeholder='직접 입력' maxLength={4} id='name' ref={inputRef} />
-            </label>
+            <input type='직접 입력' placeholder='직접 입력' maxLength={4} id='name' onChange={handleInput} />
           </InputBlock>
           <InputBlock>
             <h3>생일</h3>
@@ -147,7 +146,9 @@ export default function HomePage() {
             </div>
           </InputBlock>
         </InputContainer>
-        <Button onClick={handleClick}>나만의 오름 만들기</Button>
+        <Button onClick={handleClick} disabled={name === '' || month === '' || day === ''}>
+          나만의 오름 만들기
+        </Button>
       </Main>
     </HomeBlock>
   );
