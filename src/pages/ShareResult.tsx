@@ -5,8 +5,10 @@ import MyOreumName from '../components/myOreumResult/MyOreumName';
 import Button from '../components/shareResult/Button';
 import CtaButton from '../components/myOreumResult/CtaButton';
 import MyOreumImage from '../components/common/MyOreumImage';
+import { useNavigate } from 'react-router-dom';
 
 export default function ShareResultPage() {
+  const navigate = useNavigate();
   const saveSticker = (type: string) => {
     const sticker = document.getElementById('sticker');
     if (sticker) {
@@ -110,7 +112,7 @@ export default function ShareResultPage() {
         <Button handleClick={() => saveSticker('save')}>스티커 저장</Button>
         <Button handleClick={() => saveSticker('share')}>카카오톡 공유</Button>
       </ButtonContainer>
-      <StyledCtaButton>처음으로</StyledCtaButton>
+      <StyledCtaButton onClick={() => navigate('../')}>처음으로</StyledCtaButton>
     </Container>
   );
 }
