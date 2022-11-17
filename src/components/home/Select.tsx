@@ -6,7 +6,7 @@ const SelectBlock = styled.select<{ value: string }>`
   font-weight: 500;
   font-size: 16em;
   width: 100%;
-  height: 100%;
+  height: 47px;
   padding: 0 9px;
   border: 1px solid #bababa;
   border-radius: 10px;
