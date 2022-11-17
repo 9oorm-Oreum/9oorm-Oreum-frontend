@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-function App() {
-  const Button = styled.button`
-    widht: 100px;
-    height: 100px;
-    background-color: yellow;
-  `;
+const Button = styled.button`
+  widht: 100px;
+  height: 100px;
+  background-color: yellow;
+`;
 
+function App() {
   const shareKakao = () => {
     if ((window as any).Kakao) {
       const kakao = (window as any).Kakao;
