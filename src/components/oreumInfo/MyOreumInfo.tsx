@@ -26,6 +26,7 @@ export default function MyOreumInfo({ type, xpos, ypos }: MyOreumInfoProps) {
 
 const Container = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,6 +37,24 @@ const OreumTypeSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .image {
+    margin-top: 11px;
+  }
+
+  .type-description {
+    background-color: #ffffff;
+    border-radius: 30px;
+    padding: 13.5px 31.5px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 28px;
+    white-space: pre-line;
+    text-align: center;
+    margin-top: 11px;
+  }
 `;
 
 const OreumTypeTitle = styled.div`
@@ -50,4 +69,6 @@ const OreumTypeTitle = styled.div`
   }
 `;
 
-const OreumPositionSection = styled.section``;
+const OreumPositionSection = styled.section`
+  margin-top: 58px;
+`;
