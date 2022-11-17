@@ -24,6 +24,7 @@ export default function MyOreumInfo({ name, description, ypos, xpos }: MyOreumIn
       'https://user-images.githubusercontent.com/73823388/202508198-a3c89f34-456f-4b0e-b3f0-d8a99c02fde5.png',
       new kakao.maps.Size(22.93, 27.33),
     );
+    console.log(ypos, xpos);
     const marker = new kakao.maps.Marker({
       position: new kakao.maps.LatLng(ypos, xpos),
       image: markerImage, // 마커이미지 설정

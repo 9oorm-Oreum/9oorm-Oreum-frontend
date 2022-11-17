@@ -39,12 +39,14 @@ export default function CarouselPage() {
     <CarouselBlock>
       <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={1} pagination={{ type: 'bullets' }}>
         <SwiperSlide>
-          <MyOreumInfo
-            name={myOreum?.type ? OREUM_TYPE_INFO[myOreum.type].name : ''}
-            description={myOreum?.type ? OREUM_TYPE_INFO[myOreum.type].description : ''}
-            xpos={myOreum ? +myOreum.xpos : -1}
-            ypos={myOreum ? +myOreum.ypos : -1}
-          />
+          {myOreum && (
+            <MyOreumInfo
+              name={OREUM_TYPE_INFO[myOreum.type].name}
+              description={OREUM_TYPE_INFO[myOreum.type].description}
+              xpos={+myOreum.xpos}
+              ypos={+myOreum.ypos}
+            />
+          )}
         </SwiperSlide>
         <SwiperSlide>
           <CareOreum />
