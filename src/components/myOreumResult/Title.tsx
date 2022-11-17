@@ -18,12 +18,12 @@ const Container = styled.h1`
   align-items: center;
 
   .name {
-    font-size: 64px;
+    font-size: 64em;
     color: #f59d06;
   }
 
   .common {
-    font-size: 48px;
+    font-size: 48em;
     color: #000000;
   }
 `;

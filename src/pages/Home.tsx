@@ -36,7 +36,7 @@ const Main = styled.main`
   display: flex;
   height: 35%;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   width: 100%;
 `;
 const InputContainer = styled.div`
@@ -137,10 +137,10 @@ export default function HomePage() {
             </div>
           </InputBlock>
         </InputContainer>
-        <Button onClick={handleClick} disabled={name === '' || month === '' || day === ''}>
-          나만의 오름보기
-        </Button>
       </Main>
+      <Button onClick={handleClick} disabled={name === '' || month === '' || day === ''}>
+        나만의 오름보기
+      </Button>
     </HomeBlock>
   );
 }
