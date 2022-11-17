@@ -1,13 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { OreumType } from '../../api/types';
 import MyOreumImage from '../common/MyOreumImage';
 import Button from '../home/Button';
 
-export default function ProtectOreum({ myOreumId }: { myOreumId: number }) {
+interface ProtectOreumProps {
+  imageInfo: { type: OreumType; left: number; right: number };
+  myOreumId: number;
+}
+
+export default function ProtectOreum({ myOreumId, imageInfo }: ProtectOreumProps) {
   const navigate = useNavigate();
   return (
     <Container>
-      <MyOreumImage isSmall className='image' />
+      <MyOreumImage isSmall className='image' {...imageInfo} />
       <OreumTypeTitle>
         <span>이렇게 </span>
         <span className='type-name'>오름을 보호</span>

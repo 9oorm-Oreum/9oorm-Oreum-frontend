@@ -12,6 +12,8 @@ export interface MyOreumResponse {
   xpos: string;
   ypos: string;
   zpos: string;
+  left: number;
+  right: number;
 }
 
 export type OreumType = 'HORSESHOE' | 'CONE' | 'CIRCLE' | 'COMPLEX';
