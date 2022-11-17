@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button<{ disabled: boolean; active: boolean }>`
   background-color: ${(props) => (props.disabled ? '#bababa' : '#362c1b')};
-  height: 73px;
   border-radius: 10px;
   width: 100%;
   font-family: 'BinggraeSamancoBold';

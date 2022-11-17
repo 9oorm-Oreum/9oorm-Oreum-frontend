@@ -29,13 +29,17 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  & button {
+    bottom: 20px;
+    position: absolute;
+  }
 `;
 
 const OreumTypeTitle = styled.div`
   font-family: 'Binggrae Samanco';
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 30em;
   line-height: 22px;
   margin-top: 8px;
   .type-name {
@@ -55,8 +59,8 @@ const DescriptionBlock = styled.div`
 const Description = styled.section`
   background-color: white;
   width: 100%;
-  font-family: 'Pretendard';
-  font-size: 15px;
+  font-family: Pretendard;
+  font-size: 15em;
   line-height: 25px;
   font-weight: 400;
   padding: 10px 0;

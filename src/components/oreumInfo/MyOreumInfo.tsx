@@ -87,7 +87,6 @@ const OreumTypeSection = styled.section`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0 29px;
   .image {
     margin-top: 11px;
   }
@@ -95,7 +94,7 @@ const OreumTypeSection = styled.section`
     background-color: #ffffff;
     border-radius: 30px;
     padding: 13.5px 31.5px;
-    font-family: 'Pretendard';
+    font-family: Pretendard;
     font-style: normal;
     font-weight: 400;
     font-size: 17em;
@@ -124,8 +123,6 @@ const OreumPositionSection = styled.section`
   margin-bottom: 63px;
   width: 100%;
   height: 100%;
-  padding: 0 29px;
-
   #map {
     margin-top: 18px;
     border-radius: 30px;

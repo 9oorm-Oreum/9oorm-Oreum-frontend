@@ -30,7 +30,7 @@ const OreumTypeTitle = styled.div`
   font-family: 'Binggrae Samanco';
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 30em;
   line-height: 22px;
   margin-top: 8px;
   .type-name {
@@ -41,8 +41,8 @@ const OreumTypeTitle = styled.div`
 const Description = styled.section`
   background-color: white;
   width: 100%;
-  font-family: 'Pretendard';
-  font-size: 15px;
+  font-family: Pretendard;
+  font-size: 15em;
   line-height: 25px;
   font-weight: 400;
   padding: 34px 19px;
