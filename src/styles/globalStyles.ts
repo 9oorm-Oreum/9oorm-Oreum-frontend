@@ -8,9 +8,18 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
-    max-width: 390px;
+    max-width: 768px;
     height: 100%;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  #root{
+    position: fixed;
+    overflow: hidden;
+    max-width: 768px;
+    width: 100%;
+    height: 100%;
   }
   
   * {
