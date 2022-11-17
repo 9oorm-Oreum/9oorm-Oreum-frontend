@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import MyOreumInfo from './MyOreumInfo';
 import CareOreum from './CareOreum';
+import ProtectOreum from './ProtectOreum';
 import { OREUM_TYPE_INFO } from '../myOreumResult/constants';
 
 export default function CarouselPage() {
@@ -21,7 +22,9 @@ export default function CarouselPage() {
         <SwiperSlide>
           <CareOreum />
         </SwiperSlide>
-        <SwiperSlide>3</SwiperSlide>
+        <SwiperSlide>
+          <ProtectOreum />
+        </SwiperSlide>
       </Swiper>
     </CarouselBlock>
   );
