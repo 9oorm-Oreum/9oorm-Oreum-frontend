@@ -15,12 +15,13 @@ import { OREUM_TYPE_INFO } from '../myOreumResult/constants';
 
 export default function CarouselPage() {
   const { id } = useParams();
-  const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'type' | 'xpos' | 'ypos' | 'myOreumId'>>(
+  const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'type' | 'xpos' | 'ypos' | 'myOreumId' | 'left' | 'right'>>(
     ['myOreum', id],
     async () => {
       if (!id) throw new Error('잘못된 접근입니다');
-      const { type, ypos, xpos, myOreumId } = await getMyOreum(+id);
-      return { type, ypos, xpos, myOreumId };
+      const { type, ypos, xpos, myOreumId, left, right } = await getMyOreum(+id);
+      console.log('query', left, right);
+      return { type, ypos, xpos, myOreumId, left, right };
     },
     {
       enabled: !!id,
@@ -45,14 +46,20 @@ export default function CarouselPage() {
               description={OREUM_TYPE_INFO[myOreum.type].description}
               xpos={+myOreum.xpos}
               ypos={+myOreum.ypos}
+              imageInfo={{ type: myOreum.type, left: myOreum.left, right: myOreum.right }}
             />
           )}
         </SwiperSlide>
         <SwiperSlide>
-          <CareOreum />
+          {myOreum && <CareOreum imageInfo={{ type: myOreum.type, left: myOreum.left, right: myOreum.right }} />}
         </SwiperSlide>
         <SwiperSlide>
-          <ProtectOreum myOreumId={myOreum?.myOreumId ?? -1} />
+          {myOreum && (
+            <ProtectOreum
+              myOreumId={myOreum?.myOreumId ?? -1}
+              imageInfo={{ type: myOreum.type, left: myOreum.left, right: myOreum.right }}
+            />
+          )}
         </SwiperSlide>
       </Swiper>
     </CarouselBlock>

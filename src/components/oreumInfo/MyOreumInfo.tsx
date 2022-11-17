@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import { OreumType } from '../../api/types';
 import MyOreumImage from '../common/MyOreumImage';
 
 interface MyOreumInfoProps {
@@ -7,9 +8,10 @@ interface MyOreumInfoProps {
   description: string;
   ypos: number;
   xpos: number;
+  imageInfo: { type: OreumType; left: number; right: number };
 }
 
-export default function MyOreumInfo({ name, description, ypos, xpos }: MyOreumInfoProps) {
+export default function MyOreumInfo({ name, description, ypos, xpos, imageInfo }: MyOreumInfoProps) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const kakao = (window as any).kakao;
 
@@ -40,7 +42,7 @@ export default function MyOreumInfo({ name, description, ypos, xpos }: MyOreumIn
           <span className='type-name'> {name}</span>
           이에요
         </OreumTypeTitle>
-        <MyOreumImage isSmall className='image' />
+        <MyOreumImage isSmall className='image' {...imageInfo} />
         <div className='type-description'>{description}</div>
       </OreumTypeSection>
       <OreumPositionSection>

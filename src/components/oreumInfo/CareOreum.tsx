@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import { OreumType } from '../../api/types';
 import MyOreumImage from '../common/MyOreumImage';
 
-export default function CareOreum() {
+interface CareOreumProps {
+  imageInfo: { type: OreumType; left: number; right: number };
+}
+
+export default function CareOreum({ imageInfo }: CareOreumProps) {
+  console.log('CareOreum', imageInfo, typeof imageInfo.left);
   return (
     <Container>
-      <MyOreumImage isSmall className='image' />
+      <MyOreumImage isSmall className='image' {...imageInfo} />
       <OreumTypeTitle>
         <span>오름을 </span>
         <span className='type-name'>어떻게 돌봐야 </span>
