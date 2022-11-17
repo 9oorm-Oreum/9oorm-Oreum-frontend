@@ -14,12 +14,14 @@ import Button from '../components/home/Button';
 
 export default function ShareResultPage() {
   const { id, share } = useParams();
-  const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'nickname' | 'name' | 'type' | 'myOreumId'>>(
+  const { data: myOreum } = useQuery<
+    Pick<MyOreumResponse, 'nickname' | 'name' | 'type' | 'myOreumId' | 'left' | 'right'>
+  >(
     ['myOreum', id],
     async () => {
       if (!id) throw new Error('잘못된 접근입니다');
-      const { nickname, name, type, myOreumId } = await getMyOreum(+id);
-      return { nickname, name, type, myOreumId };
+      const { nickname, name, type, myOreumId, left, right } = await getMyOreum(+id);
+      return { nickname, name, type, myOreumId, left, right };
     },
     {
       enabled: !!id,
@@ -95,7 +97,7 @@ export default function ShareResultPage() {
       <StyledTitle content={myOreum?.nickname ?? ''} />
       <StyledMyOreumName content={myOreum?.name ?? ''} />
       <OreumType>{myOreum ? OREUM_TYPE_INFO[myOreum.type].name : ''}</OreumType>
-      <StyledMyOreumImage />
+      {myOreum && <StyledMyOreumImage type={myOreum.type} left={myOreum.left} right={myOreum.right} />}
       {!share && (
         <ButtonContainer>
           <ShareButton handleClick={() => saveSticker()}>스티커 저장</ShareButton>

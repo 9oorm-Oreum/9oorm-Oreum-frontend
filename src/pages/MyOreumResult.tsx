@@ -13,13 +13,15 @@ import Button from '../components/home/Button';
 export default function MyOreumResultPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'nickname' | 'name' | 'type' | 'myOreumId'>>(
+  const { data: myOreum } = useQuery<
+    Pick<MyOreumResponse, 'nickname' | 'name' | 'type' | 'myOreumId' | 'left' | 'right'>
+  >(
     ['myOreum', id],
     async () => {
       console.log('get');
       if (!id) throw new Error('잘못된 접근입니다');
-      const { nickname, name, type, myOreumId } = await getMyOreum(+id);
-      return { nickname, name, type, myOreumId };
+      const { nickname, name, type, myOreumId, left, right } = await getMyOreum(+id);
+      return { nickname, name, type, myOreumId, left, right };
     },
     {
       enabled: !!id,
@@ -38,7 +40,7 @@ export default function MyOreumResultPage() {
       <StyledTitle content={myOreum?.nickname ?? ''} />
       <StyledMyOreumName content={myOreum?.name ?? ''} />
       <OreumType>{myOreum?.type ? OREUM_TYPE_INFO[myOreum.type].name : ''}</OreumType>
-      <StyledMyOreumImage />
+      {myOreum && <StyledMyOreumImage type={myOreum.type} left={myOreum.left} right={myOreum.right} />}
       <Description> {`제주도에 실제로 있는 나만의 오름이에요\n오름에 대해 더 알아볼까요?`}</Description>
       <Button onClick={() => navigate(`/info/${myOreum?.myOreumId}`)}>나만의 오름 알아보기</Button>
     </Container>
