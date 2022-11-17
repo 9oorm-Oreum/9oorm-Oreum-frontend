@@ -1,15 +1,10 @@
 import styled from 'styled-components';
-import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
-import MyOreumInfo from '../components/oreumInfo/MyOreumInfo';
+import CarouselPage from '../components/oreumInfo/CarouselPage';
 
 export default function OreumInfoPage() {
   return (
     <Container>
-      <MyOreumInfo
-        type={{ name: OREUM_TYPE_INFO.CIRCLE.name, description: OREUM_TYPE_INFO.CIRCLE.description }}
-        xpos={1}
-        ypos={11}
-      />
+      <CarouselPage />
     </Container>
   );
 }
