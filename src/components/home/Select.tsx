@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const SelectBlock = styled.select<{ value: string }>`
-  font-family: 'Pretendard';
+  font-family: Pretendard;
   font-weight: 500;
   font-size: 16em;
   width: 100%;

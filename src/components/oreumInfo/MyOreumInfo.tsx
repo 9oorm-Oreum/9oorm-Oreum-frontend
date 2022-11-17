@@ -80,14 +80,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 69px;
 `;
 
 const OreumTypeSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   .image {
     margin-top: 11px;
   }
@@ -99,7 +97,7 @@ const OreumTypeSection = styled.section`
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 17em;
     line-height: 28px;
     white-space: pre-line;
     text-align: center;
@@ -111,7 +109,7 @@ const OreumTypeTitle = styled.div`
   font-family: 'Binggrae Samanco';
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 30em;
   line-height: 22px;
   letter-spacing: -0.408px;
 
@@ -137,7 +135,7 @@ const OreumPositionTitle = styled.div`
   font-family: 'Binggrae Samanco';
   font-style: normal;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 30em;
   line-height: 22px;
   text-align: center;
   letter-spacing: -0.408px;

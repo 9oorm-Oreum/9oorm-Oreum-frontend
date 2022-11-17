@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import MyOreumInfo from './MyOreumInfo';
+import CareOreum from './CareOreum';
+import ProtectOreum from './ProtectOreum';
 
 export default function CarouselPage() {
   return (
@@ -12,8 +14,12 @@ export default function CarouselPage() {
         <SwiperSlide>
           <MyOreumInfo />
         </SwiperSlide>
-        <SwiperSlide>2</SwiperSlide>
-        <SwiperSlide>3</SwiperSlide>
+        <SwiperSlide>
+          <CareOreum />
+        </SwiperSlide>
+        <SwiperSlide>
+          <ProtectOreum />
+        </SwiperSlide>
       </Swiper>
     </CarouselBlock>
   );
@@ -21,20 +27,24 @@ export default function CarouselPage() {
 
 const CarouselBlock = styled.div`
   width: 100%;
-  height: 600px;
-  background-color: yellow;
-  padding: 57px 29px 23px 29px;
+  height: 85%;
+  padding: 50px 29px 0 29px;
+  background-color: #c9e0de;
+
   .swiper-pagination {
-    bottom: 0;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: white;
+    opacity: 1;
   }
   .swiper-pagination-bullet-active {
     background-color: #49a098;
   }
   .swiper-pagination-bullets {
-    bottom: 0;
+    bottom: 10px;
   }
   .swiper {
-    background-color: pink;
     height: 100%;
   }
 `;
