@@ -62,7 +62,7 @@ const Description = styled.section`
   font-family: Pretendard;
   font-size: 15em;
   line-height: 25px;
-  font-weight: 400;
+  font-weight: 500;
   padding: 10px 0;
   border-radius: 30px;
   text-align: center;

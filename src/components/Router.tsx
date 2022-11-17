@@ -12,6 +12,7 @@ export default function Router() {
         <Route path='/result/:id' element={<MyOreumResultPage />} />
         <Route path='/info/:id' element={<OreumInfoPage />} />
         <Route path='/share/:id' element={<ShareResultPage />} />
+        <Route path='/share/:id/:share' element={<ShareResultPage />} />
       </Routes>
     </BrowserRouter>
   );
