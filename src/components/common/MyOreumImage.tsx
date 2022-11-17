@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default function MyOreumImage({ className, isSmall }: { className?: string; isSmall?: boolean }) {
   return (
-    <Container className={className} isSmall={isSmall}>
+    <Container className={className} isSmall={isSmall} id='sticker'>
       MyOreumImage
     </Container>
   );
