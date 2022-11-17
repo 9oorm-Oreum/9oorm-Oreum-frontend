@@ -13,7 +13,7 @@ import ShareButton from '../components/shareResult/Button';
 import Button from '../components/home/Button';
 
 export default function ShareResultPage() {
-  const { id } = useParams();
+  const { id, share } = useParams();
   const { data: myOreum } = useQuery<Pick<MyOreumResponse, 'nickname' | 'name' | 'type' | 'myOreumId'>>(
     ['myOreum', id],
     async () => {
@@ -30,16 +30,12 @@ export default function ShareResultPage() {
   );
   const navigate = useNavigate();
 
-  const saveSticker = (type: string) => {
+  const saveSticker = () => {
     const sticker = document.getElementById('sticker');
     if (sticker) {
       html2canvas(sticker).then((canvas) => {
         const image = canvas.toDataURL('image/png');
-        if (type === 'save') {
-          saveImage(image);
-        } else {
-          shareKakao(image);
-        }
+        saveImage(image);
       });
     }
   };
@@ -53,7 +49,7 @@ export default function ShareResultPage() {
     document.body.removeChild(link);
   };
 
-  const shareKakao = (imageUrl: string) => {
+  const shareKakao = () => {
     if ((window as any).Kakao) {
       const kakao = (window as any).Kakao;
       if (!kakao.isInitialized()) {
@@ -62,57 +58,20 @@ export default function ShareResultPage() {
       kakao.Share.sendDefault({
         objectType: 'feed',
         content: {
-          title: '오늘의 디저트',
-          description: '아메리카노, 빵, 케익',
-          imageUrl: '이미지 uri',
+          title: '나영오름',
+          description: '나만의 오름 찾으러 가기',
+          imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
+            webUrl: 'https://9oorm-oreum-frontend.vercel.app/',
+            mobileWebUrl: 'https://9oorm-oreum-frontend.vercel.app/',
           },
-        },
-        itemContent: {
-          profileText: 'Kakao',
-          profileImageUrl:
-            'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-          titleImageUrl:
-            'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-          titleImageText: 'Cheese cake',
-          titleImageCategory: 'Cake',
-          items: [
-            {
-              item: 'Cake1',
-              itemOp: '1000원',
-            },
-            {
-              item: 'Cake2',
-              itemOp: '2000원',
-            },
-            {
-              item: 'Cake3',
-              itemOp: '3000원',
-            },
-            {
-              item: 'Cake4',
-              itemOp: '4000원',
-            },
-            {
-              item: 'Cake5',
-              itemOp: '5000원',
-            },
-          ],
-          sum: '총 결제금액',
-          sumOp: '15000원',
         },
         buttons: [
           {
             title: '친구 결과 확인',
             link: {
-              mobileWebUrl: `${
-                process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '9oorm-oreum-frontend.vercel.app'
-              }/share/${myOreum?.myOreumId}`,
-              webUrl: `${
-                process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '9oorm-oreum-frontend.vercel.app'
-              }/share/${myOreum?.myOreumId}`,
+              mobileWebUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}&share=true`,
+              webUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}&share=true`,
             },
           },
           {
@@ -137,10 +96,12 @@ export default function ShareResultPage() {
       <StyledMyOreumName content={myOreum?.name ?? ''} />
       <OreumType>{myOreum ? OREUM_TYPE_INFO[myOreum.type].name : ''}</OreumType>
       <StyledMyOreumImage />
-      <ButtonContainer>
-        <ShareButton handleClick={() => saveSticker('save')}>스티커 저장</ShareButton>
-        <ShareButton handleClick={() => saveSticker('share')}>카카오톡 공유</ShareButton>
-      </ButtonContainer>
+      {!share && (
+        <ButtonContainer>
+          <ShareButton handleClick={() => saveSticker()}>스티커 저장</ShareButton>
+          <ShareButton handleClick={() => shareKakao()}>카카오톡 공유</ShareButton>
+        </ButtonContainer>
+      )}
       <Button onClick={() => navigate('../')}>처음으로</Button>
     </Container>
   );
@@ -155,6 +116,15 @@ const Container = styled.div`
   background-color: #49a098;
   padding: 0 15px;
   font-size: 1px;
+  @media screen and (max-width: 390px) {
+    font-size: 0.9px;
+  }
+  @media screen and (max-width: 380px) {
+    font-size: 0.8px;
+  }
+  @media screen and (max-width: 300px) {
+    font-size: 0.7px;
+  }
 `;
 
 const StyledMyOreumName = styled(MyOreumName)`
