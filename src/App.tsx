@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 function App() {
   const Button = styled.button`
@@ -14,30 +14,67 @@ function App() {
         kakao.init(process.env.REACT_APP_KAKAO_KEY);
       }
       kakao.Share.sendDefault({
-        objectType: "location",
-        address: "제주특별자치도 서귀포시 성산읍 동류암로 20",
-        addressTitle: "제주 플레이스캠프",
+        objectType: 'feed',
         content: {
-          title: "신메뉴 출시♥︎ 체리블라썸라떼",
-          description: "이번 주는 체리블라썸라떼 1+1",
-          imageUrl:
-            "http://k.kakaocdn.net/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png",
+          title: '오늘의 디저트',
+          description: '아메리카노, 빵, 케익',
+          imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
           link: {
-            mobileWebUrl: "https://developers.kakao.com",
-            webUrl: "https://developers.kakao.com",
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
           },
         },
+        itemContent: {
+          profileText: 'Kakao',
+          profileImageUrl:
+            'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+          titleImageUrl:
+            'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+          titleImageText: 'Cheese cake',
+          titleImageCategory: 'Cake',
+          items: [
+            {
+              item: 'Cake1',
+              itemOp: '1000원',
+            },
+            {
+              item: 'Cake2',
+              itemOp: '2000원',
+            },
+            {
+              item: 'Cake3',
+              itemOp: '3000원',
+            },
+            {
+              item: 'Cake4',
+              itemOp: '4000원',
+            },
+            {
+              item: 'Cake5',
+              itemOp: '5000원',
+            },
+          ],
+          sum: '총 결제금액',
+          sumOp: '15000원',
+        },
         social: {
-          likeCount: 286,
-          commentCount: 45,
-          sharedCount: 845,
+          likeCount: 10,
+          commentCount: 20,
+          sharedCount: 30,
         },
         buttons: [
           {
-            title: "웹으로 보기",
+            title: '웹으로 이동',
             link: {
-              mobileWebUrl: "https://developers.kakao.com",
-              webUrl: "https://developers.kakao.com",
+              mobileWebUrl: 'https://developers.kakao.com',
+              webUrl: 'https://developers.kakao.com',
+            },
+          },
+          {
+            title: '앱으로 이동',
+            link: {
+              mobileWebUrl: 'https://developers.kakao.com',
+              webUrl: 'https://developers.kakao.com',
             },
           },
         ],
