@@ -1,96 +1,51 @@
-import { useEffect } from "react";
-
+import styled from "styled-components";
 
 function App() {
+  const Button = styled.button`
+    widht: 100px;
+    height: 100px;
+    background-color: yellow;
+  `;
 
-
-  useEffect(()=>{
-    
-  },[])
-
-  const shareKakao = () =>{
-    if((window as any).Kakao){
+  const shareKakao = () => {
+    if ((window as any).Kakao) {
       const kakao = (window as any).Kakao;
-      if(!kakao.isInitialized()){
-        kakao.init('6583918a36b4a2c18eb58804d4bb3e50');
+      if (!kakao.isInitialized()) {
+        kakao.init(process.env.REACT_APP_KAKAO_KEY);
       }
-      kakao.Share.createDefaultButton({
-        container: '#kakaotalk-sharing-btn',
-        objectType: 'feed',
+      kakao.Share.sendDefault({
+        objectType: "location",
+        address: "제주특별자치도 서귀포시 성산읍 동류암로 20",
+        addressTitle: "제주 플레이스캠프",
         content: {
-          title: '오늘의 디저트',
-          description: '아메리카노, 빵, 케익',
+          title: "신메뉴 출시♥︎ 체리블라썸라떼",
+          description: "이번 주는 체리블라썸라떼 1+1",
           imageUrl:
-            'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+            "http://k.kakaocdn.net/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png",
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
+            mobileWebUrl: "https://developers.kakao.com",
+            webUrl: "https://developers.kakao.com",
           },
         },
-        itemContent: {
-          profileText: 'Kakao',
-          profileImageUrl: 'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-          titleImageUrl: 'https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-          titleImageText: 'Cheese cake',
-          titleImageCategory: 'Cake',
-          items: [
-            {
-              item: 'Cake1',
-              itemOp: '1000원',
-            },
-            {
-              item: 'Cake2',
-              itemOp: '2000원',
-            },
-            {
-              item: 'Cake3',
-              itemOp: '3000원',
-            },
-            {
-              item: 'Cake4',
-              itemOp: '4000원',
-            },
-            {
-              item: 'Cake5',
-              itemOp: '5000원',
-            },
-          ],
-          sum: 'Total',
-          sumOp: '15000원',
-        },
         social: {
-          likeCount: 10,
-          commentCount: 20,
-          sharedCount: 30,
+          likeCount: 286,
+          commentCount: 45,
+          sharedCount: 845,
         },
         buttons: [
           {
-            title: '웹으로 이동',
+            title: "웹으로 보기",
             link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
-            },
-          },
-          {
-            title: '앱으로 이동',
-            link: {
-              mobileWebUrl: 'https://developers.kakao.com',
-              webUrl: 'https://developers.kakao.com',
+              mobileWebUrl: "https://developers.kakao.com",
+              webUrl: "https://developers.kakao.com",
             },
           },
         ],
       });
     }
-  
-  }
-  
-  return  <button onClick={shareKakao}>
-  <img
-    src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-    alt="카카오링크 보내기 버튼"
-    id="kakaotalk-sharing-btn"
-  />
-</button>
+  };
+
+  return <Button onClick={shareKakao}>카카오톡 공유하기</Button>;
 }
 
 export default App;
