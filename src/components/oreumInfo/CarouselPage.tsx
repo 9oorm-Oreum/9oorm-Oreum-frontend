@@ -4,18 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import MyOreumInfo from './MyOreumInfo';
-import { OREUM_TYPE_INFO } from '../myOreumResult/constants';
 
 export default function CarouselPage() {
   return (
     <CarouselBlock>
       <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={1} pagination={{ type: 'bullets' }}>
         <SwiperSlide>
-          <MyOreumInfo
-            type={{ name: OREUM_TYPE_INFO.CIRCLE.name, description: OREUM_TYPE_INFO.CIRCLE.description }}
-            xpos={1}
-            ypos={11}
-          />
+          <MyOreumInfo />
         </SwiperSlide>
         <SwiperSlide>2</SwiperSlide>
         <SwiperSlide>3</SwiperSlide>
