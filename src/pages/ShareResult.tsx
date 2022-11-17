@@ -70,8 +70,8 @@ export default function ShareResultPage() {
           {
             title: '친구 결과 확인',
             link: {
-              mobileWebUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}&share=true`,
-              webUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}&share=true`,
+              mobileWebUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}/true`,
+              webUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}/true`,
             },
           },
           {
