@@ -56,23 +56,8 @@ const Container = styled.div`
   background-color: #49a098;
   padding: 0 15px;
   font-size: 1px;
-  @media screen and (max-width: 390px) {
+  @media screen and (max-width: 310px) {
     font-size: 0.9px;
-  }
-  @media screen and (max-width: 380px) {
-    font-size: 0.8px;
-  }
-  @media screen and (max-width: 300px) {
-    font-size: 0.7px;
-  }
-  @media screen and (max-height: 680px) {
-    font-size: 0.8px;
-  }
-  @media screen and (max-width: 660px) {
-    font-size: 0.7px;
-  }
-  @media screen and (max-width: 300px) {
-    font-size: 0.7px;
   }
 `;
 
@@ -84,7 +69,7 @@ const OreumType = styled.div`
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
-  font-size: 17em;
+  font-size: 20em;
   line-height: 22px;
   color: #ffffff;
   margin-top: 12px;

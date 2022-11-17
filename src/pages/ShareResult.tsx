@@ -35,7 +35,7 @@ export default function ShareResultPage() {
   const saveSticker = () => {
     const sticker = document.getElementById('sticker');
     if (sticker) {
-      html2canvas(sticker).then((canvas) => {
+      html2canvas(sticker, { backgroundColor: null }).then((canvas) => {
         const image = canvas.toDataURL('image/png');
         saveImage(image);
       });
