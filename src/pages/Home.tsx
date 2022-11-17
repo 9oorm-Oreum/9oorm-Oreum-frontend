@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Select from '../components/home/Select';
 import { postMyOreum } from '../api';
 import { useNavigate } from 'react-router-dom';
+import Button from '../components/home/Button';
 
 const HomeBlock = styled.div`
   background-color: #49a098;
@@ -22,26 +23,26 @@ const HomeBlock = styled.div`
 `;
 const Header = styled.header`
   background-color: #eeeeee;
-  height: 14%;
+  height: 15%;
 `;
 const Icon = styled.div`
   background-color: #aaaaaa;
-  height: 20%;
+  height: 35%;
 `;
 const Main = styled.main`
-  height: 26%;
   padding: 0 15px;
   display: flex;
+  height: 35%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
 `;
 const InputContainer = styled.div`
-  height: 40%;
   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 0 25px;
+  margin-bottom: 7%;
   & > div {
     display: flex;
     gap: 10px;
@@ -74,7 +75,7 @@ const InputBlock = styled.div`
     font-weight: 500;
     font-size: 16em;
     width: 100%;
-    height: 100%;
+    height: 47px;
     padding: 0 9px;
     border: 1px solid #bababa;
     border-radius: 10px;
@@ -86,21 +87,9 @@ const InputBlock = styled.div`
   }
 
   & > div {
-    height: 60%;
     display: flex;
     gap: 9px;
   }
-`;
-
-const Button = styled.button<{ disabled: boolean }>`
-  background-color: ${(props) => (props.disabled ? '#bababa' : '#362c1b')};
-  height: 40%;
-  border-radius: 10px;
-  width: 100%;
-  font-family: 'BinggraeSamancoBold';
-  color: white;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-  font-size: 33em;
 `;
 
 export default function HomePage() {
@@ -147,7 +136,7 @@ export default function HomePage() {
           </InputBlock>
         </InputContainer>
         <Button onClick={handleClick} disabled={name === '' || month === '' || day === ''}>
-          나만의 오름 만들기
+          나만의 오름보기
         </Button>
       </Main>
     </HomeBlock>

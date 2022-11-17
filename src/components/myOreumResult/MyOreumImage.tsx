@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export default function MyOreumImage({ className }: { className?: string }) {
-  return <Container className={className}>MyOreumImage</Container>;
+  return (
+    <Container className={className} id='sticker'>
+      MyOreumImage
+    </Container>
+  );
 }
 
 const Container = styled.div`
