@@ -1,5 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
-import { MyOreumRequestBody, MyOreumResponse } from './types';
+import axios from 'axios';
+import { MyOreumRequestBody } from './types';
 
 const axiosInstance = axios.create({
   baseURL: '',
@@ -19,9 +19,9 @@ export const postMyOreum = async (requestBody: MyOreumRequestBody) => {
 };
 
 export const getMyOreum = async (myOreumID: number) => {
-  const response = await axiosInstance.request<AxiosResponse<MyOreumResponse>>({
+  const response = await axiosInstance.request({
     method: 'GET',
     url: `/oreums/${myOreumID}`,
   });
-  return response.data.data;
+  return response.data;
 };

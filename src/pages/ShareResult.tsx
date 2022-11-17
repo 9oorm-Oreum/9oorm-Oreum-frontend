@@ -2,9 +2,9 @@ import html2canvas from 'html2canvas';
 import styled from 'styled-components';
 import Title from '../components/myOreumResult/Title';
 import MyOreumName from '../components/myOreumResult/MyOreumName';
-import MyOreumImage from '../components/myOreumResult/MyOreumImage';
 import Button from '../components/shareResult/Button';
 import CtaButton from '../components/myOreumResult/CtaButton';
+import MyOreumImage from '../components/common/MyOreumImage';
 
 export default function ShareResultPage() {
   const saveSticker = (type: string) => {
