@@ -71,14 +71,14 @@ export default function ShareResultPage() {
         },
         buttons: [
           {
-            title: '친구 결과 확인',
+            title: '친구 결과확인',
             link: {
               mobileWebUrl: `https://nayeongoreum.vercel.app/share/${myOreum?.myOreumId}/true`,
               webUrl: `https://nayeongoreum.vercel.app/share/${myOreum?.myOreumId}/true`,
             },
           },
           {
-            title: '나의 오름 찾기',
+            title: '나의 오름찾기',
             link: {
               mobileWebUrl: 'https://nayeongoreum.vercel.app/',
               webUrl: 'https://nayeongoreum.vercel.app/',

@@ -7,7 +7,6 @@ interface CareOreumProps {
 }
 
 export default function CareOreum({ imageInfo }: CareOreumProps) {
-  console.log('CareOreum', imageInfo, typeof imageInfo.left);
   return (
     <Container>
       <MyOreumImage isSmall className='image' {...imageInfo} />
@@ -31,6 +30,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0 30px 0 30px;
+  margin-top: 81px;
 `;
 
 const OreumTypeTitle = styled.div`
