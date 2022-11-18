@@ -16,6 +16,7 @@ export default function MyOreumInfo({ name, description, ypos, xpos, imageInfo }
   const kakao = (window as any).kakao;
 
   useEffect(() => {
+    if (!ypos) return;
     const container = document.getElementById('map');
     const options = {
       center: new kakao.maps.LatLng(33.380648, 126.579557),
@@ -32,7 +33,7 @@ export default function MyOreumInfo({ name, description, ypos, xpos, imageInfo }
       image: markerImage, // 마커이미지 설정
     });
     marker.setMap(map);
-  }, []);
+  }, [ypos]);
 
   return (
     <Container>
@@ -49,13 +50,15 @@ export default function MyOreumInfo({ name, description, ypos, xpos, imageInfo }
         <OreumPositionTitle>
           내 오름,<span className='where'> 어디</span>에 있을까요?
         </OreumPositionTitle>
-        <div
-          id='map'
-          style={{
-            width: '100%',
-            height: '113px',
-          }}
-        ></div>
+        {ypos && (
+          <div
+            id='map'
+            style={{
+              width: '100%',
+              height: '113px',
+            }}
+          ></div>
+        )}
       </OreumPositionSection>
     </Container>
   );
