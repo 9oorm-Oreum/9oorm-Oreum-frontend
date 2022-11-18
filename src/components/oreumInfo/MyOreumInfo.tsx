@@ -20,14 +20,13 @@ export default function MyOreumInfo({ name, description, ypos, xpos, imageInfo }
     const container = document.getElementById('map');
     const options = {
       center: new kakao.maps.LatLng(33.380648, 126.579557),
-      level: 11,
+      level: 12,
     };
     const map = new kakao.maps.Map(container, options);
     const markerImage = new kakao.maps.MarkerImage(
       'https://user-images.githubusercontent.com/73823388/202508198-a3c89f34-456f-4b0e-b3f0-d8a99c02fde5.png',
       new kakao.maps.Size(22.93, 27.33),
     );
-    console.log(ypos, xpos);
     const marker = new kakao.maps.Marker({
       position: new kakao.maps.LatLng(ypos, xpos),
       image: markerImage, // 마커이미지 설정
@@ -60,6 +59,9 @@ export default function MyOreumInfo({ name, description, ypos, xpos, imageInfo }
           ></div>
         )}
       </OreumPositionSection>
+      <Notice>
+        오름 방문 시에는 사전에 제주 관광 정보센터(064-740-6000)를 통해 정확한 정보를 확인하시고 방문해주세요.
+      </Notice>
     </Container>
   );
 }
@@ -70,7 +72,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 30px 0 30px;
+  margin-top: 57px;
+  padding: 0 29px;
+  position: relative;
 `;
 
 const OreumTypeSection = styled.section`
@@ -133,4 +137,16 @@ const OreumPositionTitle = styled.div`
   .where {
     color: #f59d06;
   }
+`;
+
+const Notice = styled.div`
+  position: absolute;
+  bottom: 0;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  color: rgba(0, 0, 0, 0.39);
+  padding: 0 30px 80px 30px;
 `;

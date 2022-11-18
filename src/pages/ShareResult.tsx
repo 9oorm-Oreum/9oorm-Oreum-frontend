@@ -71,14 +71,14 @@ export default function ShareResultPage() {
         },
         buttons: [
           {
-            title: '친구 결과 확인',
+            title: '친구 결과확인',
             link: {
               mobileWebUrl: `https://nayeongoreum.vercel.app/share/${myOreum?.myOreumId}/true`,
               webUrl: `https://nayeongoreum.vercel.app/share/${myOreum?.myOreumId}/true`,
             },
           },
           {
-            title: '나의 오름 찾기',
+            title: '나의 오름찾기',
             link: {
               mobileWebUrl: 'https://nayeongoreum.vercel.app/',
               webUrl: 'https://nayeongoreum.vercel.app/',
@@ -105,7 +105,7 @@ export default function ShareResultPage() {
           <ShareButton handleClick={() => shareKakao()}>카카오톡 공유</ShareButton>
         </ButtonContainer>
       )}
-      <Button onClick={() => navigate('../')}>처음으로</Button>
+      <StyledButton onClick={() => navigate('../')}>처음으로</StyledButton>
     </Container>
   );
 }
@@ -159,5 +159,20 @@ const ButtonContainer = styled.div`
   padding: 0 25px;
   gap: 15px;
   margin-top: 5%;
-  margin-bottom: 5%;
+`;
+
+const StyledButton = styled.button`
+  position: absolute;
+  bottom: 20px;
+  background-color: #fdc265;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: #000000;
+  font-family: 'Binggrae Samanco';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 22px;
+  width: calc(100% - 30px);
+  padding: 20px 14px;
 `;
