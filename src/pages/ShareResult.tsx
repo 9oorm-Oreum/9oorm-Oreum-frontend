@@ -174,5 +174,6 @@ const StyledButton = styled.button`
   font-size: 33px;
   line-height: 22px;
   width: calc(100% - 30px);
+  max-width: calc(768px - 30px);
   padding: 20px 14px;
 `;
