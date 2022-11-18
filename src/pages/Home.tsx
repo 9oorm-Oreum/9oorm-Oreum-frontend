@@ -43,8 +43,7 @@ const InputContainer = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0 25px;
-  margin-bottom: 7%;
-  margin-top: 7%;
+  margin-top: 39px;
   & > div {
     display: flex;
     gap: 10px;
