@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../components/home/Button';
 import MainIcon from '../assets/main.png';
 import Title from '../assets/title.png';
+import { imgMain } from '../assets';
 
 const HomeBlock = styled.div`
   background-color: #49a098;
@@ -28,12 +29,7 @@ const HomeBlock = styled.div`
 const Header = styled.header`
   height: 15%;
 `;
-const Icon = styled.div`
-  height: 40%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-`;
+
 const Main = styled.main`
   padding: 0 15px;
   display: flex;
@@ -103,10 +99,9 @@ const HeaderImage = styled.img`
   width: 100%;
   height: 100%;
 `;
-const IconImage = styled.img`
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
+
+const MainImage = styled.img`
+  margin-top: 11px;
 `;
 
 export default function HomePage() {
@@ -135,9 +130,7 @@ export default function HomePage() {
       <Header>
         <HeaderImage src={Title} alt='서비스 제목 및 설명' />
       </Header>
-      <Icon>
-        <IconImage src={MainIcon} alt='메인 아이콘' />
-      </Icon>
+      <MainImage src={imgMain} />
       <Main>
         <InputContainer>
           <InputBlock>
