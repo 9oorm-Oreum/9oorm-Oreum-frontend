@@ -70,6 +70,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 30px 0 30px;
 `;
 
 const OreumTypeSection = styled.section`

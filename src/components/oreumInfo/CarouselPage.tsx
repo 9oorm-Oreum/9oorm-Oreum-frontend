@@ -69,12 +69,10 @@ export default function CarouselPage() {
 const CarouselBlock = styled.div`
   width: 100%;
   height: 100%;
-  padding: 50px 29px 0 29px;
+  padding-top: 50px;
   background-color: #c9e0de;
-
   .swiper-pagination {
   }
-
   .swiper-pagination-bullet {
     background-color: white;
     opacity: 1;

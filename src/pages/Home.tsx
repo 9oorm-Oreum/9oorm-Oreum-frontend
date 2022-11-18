@@ -104,7 +104,7 @@ const HeaderImage = styled.img`
   height: 100%;
 `;
 const IconImage = styled.img`
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
 `;
