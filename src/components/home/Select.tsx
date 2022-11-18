@@ -16,6 +16,24 @@ const SelectBlock = styled.select<{ value: string }>`
   }
 `;
 
+const SelectContainer = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
+const Triangle = styled.div`
+  width: 0;
+  height: 0;
+  border-bottom: 0 solid #bababa;
+  border-top: 5.5px solid #bababa;
+  border-left: 5.5px solid transparent;
+  border-right: 5.5px solid transparent;
+  position: absolute;
+  right: 9px;
+  top: 18px;
+  bottom: 18px;
+`;
+
 interface SelectProps {
   children: ReactNode;
   range: number;
@@ -35,14 +53,17 @@ const Select = ({ children, range, setState, value }: SelectProps) => {
   }, [range]);
 
   return (
-    <SelectBlock value={value || ''} onChange={(e) => handleSelect(e)}>
-      <option value='' disabled>
-        {children}
-      </option>
-      {options.map((option) => {
-        return <option value={option} key={option}>{`${option}${children}`}</option>;
-      })}
-    </SelectBlock>
+    <SelectContainer>
+      <SelectBlock value={value || ''} onChange={(e) => handleSelect(e)}>
+        <option value='' disabled>
+          {children}
+        </option>
+        {options.map((option) => {
+          return <option value={option} key={option}>{`${option}${children}`}</option>;
+        })}
+      </SelectBlock>
+      <Triangle />
+    </SelectContainer>
   );
 };
 

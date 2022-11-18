@@ -67,6 +67,11 @@ const GlobalStyle = createGlobalStyle`
   input[disabled] {
     background-color: white;
   }
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 
   @font-face{
     font-family:"Binggrae Samanco";
