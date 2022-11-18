@@ -6,3 +6,4 @@ export { default as imgRedFlowerSticker } from './red_flower_sticker.svg';
 export { default as imgHanrabongSticker } from './hanrabong_sticker.svg';
 export { default as imgYellowFlowerSticker } from './yellow_flower_sticker.svg';
 export { default as imgStoneSticker } from './stone_sticker.svg';
+export { default as imgMain } from './main.svg';
