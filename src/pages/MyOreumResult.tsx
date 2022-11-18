@@ -8,7 +8,6 @@ import { useQuery } from 'react-query';
 import MyOreumImage from '../components/common/MyOreumImage';
 import { OREUM_TYPE_INFO } from '../components/myOreumResult/constants';
 import { MyOreumResponse } from '../api/types';
-import Button from '../components/home/Button';
 
 export default function MyOreumResultPage() {
   const { id } = useParams();
@@ -51,7 +50,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #49a098;
   padding: 0 15px;
@@ -93,5 +92,21 @@ const Description = styled.div`
   white-space: pre-line;
   text-align: center;
   margin-top: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 56px;
+`;
+
+const Button = styled.button`
+  position: fixed;
+  bottom: 20px;
+  background-color: #fdc265;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  color: #000000;
+  font-family: 'Binggrae Samanco';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 33px;
+  line-height: 22px;
+  width: calc(100% - 30px);
+  padding: 20px 14px;
 `;

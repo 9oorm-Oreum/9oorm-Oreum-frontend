@@ -162,7 +162,7 @@ const ButtonContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   background-color: #fdc265;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
