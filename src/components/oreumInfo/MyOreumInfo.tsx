@@ -88,7 +88,7 @@ const OreumTypeSection = styled.section`
   .type-description {
     background-color: #ffffff;
     border-radius: 30px;
-    padding: 13.5px 31.5px;
+    padding: 13.5px 19.5px;
     font-family: Pretendard;
     font-style: normal;
     font-weight: 400;
