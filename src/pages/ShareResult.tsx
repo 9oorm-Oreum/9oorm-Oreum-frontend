@@ -62,25 +62,26 @@ export default function ShareResultPage() {
         content: {
           title: '나영오름',
           description: '나만의 오름 찾으러 가기',
-          imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+          imageUrl:
+            'https://user-images.githubusercontent.com/52497708/202596769-d409bd63-0288-42c6-b140-30e68679e3e7.png',
           link: {
-            webUrl: 'https://9oorm-oreum-frontend.vercel.app/',
-            mobileWebUrl: 'https://9oorm-oreum-frontend.vercel.app/',
+            webUrl: 'https://nayeongoreum.vercel.app/',
+            mobileWebUrl: 'https://nayeongoreum.vercel.app',
           },
         },
         buttons: [
           {
             title: '친구 결과 확인',
             link: {
-              mobileWebUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}/true`,
-              webUrl: `https://9oorm-oreum-frontend.vercel.app/share/${myOreum?.myOreumId}/true`,
+              mobileWebUrl: `https://nayeongoreum.vercel.app/share/${myOreum?.myOreumId}/true`,
+              webUrl: `https://nayeongoreum.vercel.app/share/${myOreum?.myOreumId}/true`,
             },
           },
           {
             title: '나의 오름 찾기',
             link: {
-              mobileWebUrl: 'https://9oorm-oreum-frontend.vercel.app/',
-              webUrl: 'https://9oorm-oreum-frontend.vercel.app/',
+              mobileWebUrl: 'https://nayeongoreum.vercel.app/',
+              webUrl: 'https://nayeongoreum.vercel.app/',
             },
           },
         ],

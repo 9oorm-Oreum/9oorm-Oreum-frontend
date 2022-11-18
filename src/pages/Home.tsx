@@ -4,6 +4,8 @@ import Select from '../components/home/Select';
 import { postMyOreum } from '../api';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/home/Button';
+import MainIcon from '../assets/main.png';
+import Title from '../assets/title.png';
 
 const HomeBlock = styled.div`
   background-color: #49a098;
@@ -11,7 +13,7 @@ const HomeBlock = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   font-size: 1px;
   @media screen and (max-width: 390px) {
     font-size: 0.9px;
@@ -24,12 +26,13 @@ const HomeBlock = styled.div`
   }
 `;
 const Header = styled.header`
-  background-color: #eeeeee;
   height: 15%;
 `;
 const Icon = styled.div`
-  background-color: #aaaaaa;
-  height: 35%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 const Main = styled.main`
   padding: 0 15px;
@@ -45,6 +48,7 @@ const InputContainer = styled.div`
   width: 100%;
   padding: 0 25px;
   margin-bottom: 7%;
+  margin-top: 7%;
   & > div {
     display: flex;
     gap: 10px;
@@ -94,6 +98,17 @@ const InputBlock = styled.div`
   }
 `;
 
+const HeaderImage = styled.img`
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+`;
+const IconImage = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+`;
+
 export default function HomePage() {
   const [month, setMonth] = useState<string>('');
   const [day, setDay] = useState<string>('');
@@ -117,8 +132,12 @@ export default function HomePage() {
 
   return (
     <HomeBlock>
-      <Header></Header>
-      <Icon></Icon>
+      <Header>
+        <HeaderImage src={Title} alt='서비스 제목 및 설명' />
+      </Header>
+      <Icon>
+        <IconImage src={MainIcon} alt='메인 아이콘' />
+      </Icon>
       <Main>
         <InputContainer>
           <InputBlock>
