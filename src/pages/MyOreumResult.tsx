@@ -109,5 +109,5 @@ const Button = styled.button`
   line-height: 22px;
   width: calc(100% - 30px);
   padding: 20px 14px;
-  max-width: calc(768px - 30px);
+  max-width: calc(390px - 30px);
 `;

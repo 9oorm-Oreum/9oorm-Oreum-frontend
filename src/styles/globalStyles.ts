@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body {
-    max-width: 768px;
+    max-width: 390px;
     height: 100%;
     width: 100%;
     margin: 0 auto;
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   #root{
     position: fixed;
     overflow: hidden;
-    max-width: 768px;
+    max-width: 390px;
     width: 100%;
     height: 100%;
   }

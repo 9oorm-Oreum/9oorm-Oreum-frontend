@@ -16,7 +16,7 @@ const StyledButton = styled.button<{ disabled: boolean; active: boolean }>`
   bottom: 40px;
   left: 15px;
   right: 15px;
-  max-width: 738px;
+  max-width: 360px;
   margin: 0 auto;
 `;
 
