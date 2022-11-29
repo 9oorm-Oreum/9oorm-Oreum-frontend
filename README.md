@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# 나영오름
+생일로 알아보는 나만의 오름
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🍊 나영오름이란?
+서비스 이름 나영오름은 제주도 말로 <b>“나의오름”</b>이라는 뜻이에요!  “나영”은 제주도에서 “나의” 또는 “나만의”의 의미로 쓰인다고 해요.
 
-## Available Scripts
+## 🏔 나만의 오름을 찾아보아요
+나의 생일을 입력하여 나만의 오름을 확인해요.<br>오름은 모두 제주에 실제로 존재하는 오름이며 생일에 따라 모두 다른 오름과 오름 일러스트를 보여드려요!
+<div align='center'>
+ <img src="https://goorm.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F7620eddd-0a1e-477e-99c8-1db3528b6093%2F13_Pro_-_16.png?table=block&id=deffbe19-728b-4db8-a1d5-2a2fb1232a5b&spaceId=38552da6-340d-42c1-a9a1-b181ff331f03&width=2000&userId=&cache=v2" width=200> <img src="https://goorm.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F57e794cc-bb4e-469e-b274-3829af3387b5%2F13_Pro_-_43.png?table=block&id=db318f50-e7a8-4890-8537-5c2f02d9576e&spaceId=38552da6-340d-42c1-a9a1-b181ff331f03&width=290&userId=&cache=v2" width=200>
+</div>
 
-In the project directory, you can run:
+## 🏔 오름에 대해 공부해요
+나의 오름의 종류와 실제 위치를 공부해요.
+<div align='center'>
+   <img src="https://goorm.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F919b4cfc-3c71-4a14-8f7b-92cdd34ca2ad%2F13_Pro_-_27.png?table=block&id=54097b7a-5b69-456d-98b0-e14ac4cd5cf4&spaceId=38552da6-340d-42c1-a9a1-b181ff331f03&width=380&userId=&cache=v2" width=200> <img src="https://goorm.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Feb66f181-53b4-4696-bd7f-4d999a5ab791%2F13_Pro_-_28.png?table=block&id=97d7bc8f-d4fe-4ec3-9d7f-755089e477a2&spaceId=38552da6-340d-42c1-a9a1-b181ff331f03&width=240&userId=&cache=v2" width=200> <img src="https://goorm.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F045cc4ea-be4b-4080-aa48-974f77ad0ff0%2F13_Pro_-_34.png?table=block&id=6f6715b1-3ffd-4755-8853-b978e7847557&spaceId=38552da6-340d-42c1-a9a1-b181ff331f03&width=260&userId=&cache=v2" width=200>
+</div>
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🏔 나의 오름을 친구들에게 공유해요
+나만의 오름 일러스트를 스티커로 저장하고, 카카오톡으로 나만의 오름을 친구들에게 공유해요!
+<div align='center'>
+ <img src="https://goorm.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F91bd6616-5019-4cdf-89c8-fbd39bf83712%2F13_Pro_-_39.png?table=block&id=ddc9ca85-64fb-458d-a51d-edaed86177a7&spaceId=38552da6-340d-42c1-a9a1-b181ff331f03&width=290&userId=&cache=v2" width=200>
+</div>
 
-### `yarn test`
+## 🙋‍♀️ Member
+> 오르세라팀 프론트엔드 멤버
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| [<img src="https://avatars.githubusercontent.com/u/52497708?v=4" width="150">](https://github.com/wish0ne)| [<img src="https://avatars.githubusercontent.com/u/73823388?v=4" width="150">](https://github.com/NamJwong) | 
+| :-----------------------------------: | :---------------------------------------: |
+|[장소원](https://github.com/wish0ne)|[남주영](https://github.com/NamJwong)|
